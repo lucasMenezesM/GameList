@@ -1,0 +1,10 @@
+.options {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cardOptions-button {
+  margin: 10px 0;
+}

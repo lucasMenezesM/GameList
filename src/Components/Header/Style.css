@@ -1,0 +1,21 @@
+header {
+  background-color: #5c6784;
+  /* border: 5px solid green; */
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 45px 0; */
+}
+
+header h1 {
+  font-family: "Bebas Neue", sans-serif;
+  padding-top: 10px;
+  margin: 0;
+  padding: 0;
+  font-size: 60px;
+}
+
+.title {
+  text-align: center;
+}

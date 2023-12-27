@@ -1,0 +1,81 @@
+.no-games-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.box-initial-page {
+  background-color: #5c6784;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  width: 500px;
+}
+
+.add-game-no-page form {
+  display: grid;
+  grid-template-columns: 45% 1fr;
+  row-gap: 10px;
+}
+
+.add-game-no-page input {
+  border-radius: 5px;
+}
+
+.initial-message {
+}
+
+.initial-message p,
+.initial-message h2 {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.initial-message h2 {
+  font-size: 80px;
+}
+
+.initial-message p {
+  font-size: 22px;
+}
+
+.add-button-no-page {
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  border: none;
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 1px 1px 5px gray;
+  }
+}
+
+.complete-input-no-page {
+  margin-left: 5px;
+  transform: scale(1.5);
+}
+
+@media screen and (max-width: 1000px) {
+  .box-initial-page {
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .box-initial-page {
+    width: 90%;
+  }
+
+  .add-game-no-page form {
+    grid-template-columns: 1fr 40%;
+  }
+
+  .initial-message h2 {
+    font-size: 50px;
+  }
+
+  .initial-message p {
+    font-size: 20px;
+  }
+}

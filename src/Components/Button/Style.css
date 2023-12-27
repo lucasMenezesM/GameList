@@ -1,0 +1,11 @@
+.buttonComponent {
+  &:hover {
+    transform: scale(1.03);
+    box-shadow: 1px 1px 5px gray;
+  }
+}
+
+.selected .button {
+  /* background-color: white;
+  color: black; */
+}

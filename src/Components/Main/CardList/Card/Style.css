@@ -1,0 +1,22 @@
+.card {
+  margin: 10px;
+  transition: 0.3s;
+  width: 700px;
+  box-shadow: 5px 5px 5px gray;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+
+.selected {
+  transform: scale(1.04);
+  box-shadow: 0px 0px 20px rgb(0, 0, 0);
+}
+
+.complete-button {
+  margin: 5px 10px;
+}
+
+.complete-button input {
+  background-color: rgb(194, 192, 192);
+}

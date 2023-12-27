@@ -1,0 +1,30 @@
+* {
+}
+
+.column-form {
+  margin: 10px 0;
+}
+
+.form-add-game {
+  margin: 25px 0;
+  background-color: #5c6784;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.form-add-game span {
+  color: white;
+}
+
+.button-open-add-form button {
+  margin-top: 15px;
+}
+
+.checkbox-add-form {
+  color: white;
+}
+
+.palette {
+  display: flex;
+  flex-wrap: wrap;
+}
