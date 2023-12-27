@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
@@ -6,12 +6,13 @@ import Button from "../../Button/Button";
 import React from "react";
 import "./Style.css";
 
-export default function Actions({ onOrder, onClear }) {
-  const [filter, setFilter] = useState("default");
+export default function Actions({ onOrder, onClear, filter, onSetFilter }) {
+  // const [filter, setFilter] = useState("default");
 
   function handleSelectFilter(e) {
-    setFilter(e.target.value);
-    onOrder(e.target.value);
+    // setFilter(e.target.value);
+    // onOrder(e.target.value);
+    onSetFilter(e.target.value);
   }
 
   return (
@@ -27,9 +28,10 @@ export default function Actions({ onOrder, onClear }) {
             onChange={(e) => handleSelectFilter(e)}
           >
             <option value="default">Select an Option</option>
-            <option value="input">Orber by input</option>
-            <option value="name">by Name</option>
-            <option value="complet">Three</option>
+            <option value="input">input order</option>
+            <option value="name">Name</option>
+            <option value="completed">Completed games</option>
+            <option value="uncompleted">Uncompleted Games</option>
           </Form.Select>
         </Col>
       </Row>
