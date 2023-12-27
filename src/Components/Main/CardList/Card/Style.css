@@ -1,8 +1,8 @@
 .card {
-  margin: 10px;
+  margin: 30px;
   transition: 0.3s;
   width: 700px;
-  box-shadow: 5px 5px 5px gray;
+  box-shadow: 0px 0px 5px gray;
   &:hover {
     transform: scale(1.02);
   }
@@ -19,4 +19,17 @@
 
 .complete-button input {
   background-color: rgb(194, 192, 192);
+}
+
+.game-details {
+  padding: 0;
+  border-top: 1px solid gray;
+  /* border-top: 1px solid gray;
+  border-bottom: 1px solid gray; */
+}
+
+.game-details p {
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid gray;
 }

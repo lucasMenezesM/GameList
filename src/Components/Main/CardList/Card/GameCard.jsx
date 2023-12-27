@@ -1,9 +1,9 @@
 import Card from "react-bootstrap/Card";
 import "./Style.css";
-import ListGroup from "react-bootstrap/ListGroup";
 import Button from "../../../Button/Button";
 import Form from "react-bootstrap/Form";
 import CardOptions from "./CardOptions/CardOptions";
+import GameDetails from "./GameDetails/GameDetails";
 
 function GameCard({
   game,
@@ -22,10 +22,6 @@ function GameCard({
     color: game.textColor,
   };
 
-  const itemStyle = {
-    backgroundColor: game.backgroundColor,
-    color: game.textColor,
-  };
   const isSelected = game.id === selectedGame?.id;
   return (
     <Card className={`card ${isSelected ? `selected` : ``}`} style={cardStyle}>
@@ -38,12 +34,11 @@ function GameCard({
           <strong>{game.name}</strong>
         </Card.Title>
       </Card.Body>
+
       {!isSelected && (
-        <ListGroup className={"list-group-flush"}>
-          <p>Developer: {game.developer}</p>
-          <p>Platform: {game.platform}</p>
-        </ListGroup>
+        <GameDetails developer={game.developer} platform={game.platform} />
       )}
+
       <Form.Check
         className="complete-button" // prettier-ignore
         type="switch"
@@ -52,10 +47,12 @@ function GameCard({
         checked={game.completed}
         onChange={() => onComplete(game)}
       />
+
       <Card.Body>
         <Button onClick={() => onSelection(game)}>
           {isSelected ? "Close Options" : "Open Options"}
         </Button>
+
         {isSelected && (
           <CardOptions game={game} onRemove={onRemove} onEdit={onEdit} />
         )}

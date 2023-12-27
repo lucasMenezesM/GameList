@@ -8,3 +8,10 @@
 .cardOptions-button {
   margin: 10px 0;
 }
+
+.card-palette {
+  background-color: rgb(205, 205, 205);
+  padding: 5px;
+  width: 60%;
+  border-radius: 5px;
+}

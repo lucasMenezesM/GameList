@@ -27,10 +27,13 @@ export default function CardOptions({ game, onRemove, onEdit }) {
       {isPaletteOpen && (
         <>
           <label>Change background color</label>
-          <ColorPalette onSelectColor={setBackgroundColor} />
+          <ColorPalette
+            className="card-palette"
+            onSelectColor={setBackgroundColor}
+          />
 
           <label>Change text color: </label>
-          <ColorPalette onSelectColor={setTextColor} />
+          <ColorPalette className="card-palette" onSelectColor={setTextColor} />
 
           <Button
             className="cardOptions-button"

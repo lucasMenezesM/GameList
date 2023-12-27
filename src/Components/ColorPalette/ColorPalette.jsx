@@ -13,6 +13,7 @@ export default function ColorPalette({
   onSelectColor,
   defaultSize = "16",
   selectedSize = "25",
+  className = "",
 }) {
   const [selectedColor, setSelectedColor] = useState(null);
 
@@ -31,7 +32,7 @@ export default function ColorPalette({
   }
 
   return (
-    <span style={containerColorStyle}>
+    <span className={className} style={containerColorStyle}>
       {colors.map((color, i) => {
         return (
           <span
