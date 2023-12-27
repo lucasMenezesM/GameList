@@ -40,13 +40,8 @@ function GameCard({
       </Card.Body>
       {!isSelected && (
         <ListGroup className={"list-group-flush"}>
-          <ListGroup.Item style={itemStyle}>
-            Developer: {game.developer}
-          </ListGroup.Item>
-          <ListGroup.Item style={itemStyle}>
-            Platform: {game.platform}
-          </ListGroup.Item>
-          <ListGroup.Item style={itemStyle}>Vestibulum at eros</ListGroup.Item>
+          <p>Developer: {game.developer}</p>
+          <p>Platform: {game.platform}</p>
         </ListGroup>
       )}
       <Form.Check
