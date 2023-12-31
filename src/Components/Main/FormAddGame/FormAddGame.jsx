@@ -4,9 +4,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "../../Button/Button";
 import "./Style.css";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import ColorPalette from "../../ColorPalette/ColorPalette";
+import { useKey } from "../../../hooks/useKey";
 
 const generateUniqueId = () => {
   return uuidv4();
@@ -30,7 +31,7 @@ export default function FormAddGame({ onAddGame, games }) {
 
   function onSubmit(e) {
     e.preventDefault();
-    if (!name || !dev) return;
+    if (!name) return;
 
     const newGame = {
       id: generateUniqueId(),
@@ -53,6 +54,15 @@ export default function FormAddGame({ onAddGame, games }) {
     console.log(newGame);
   }
 
+  useKey("Escape", () => setShowAddForm(false));
+  useKey("Enter", () => setShowAddForm(true));
+
+  const inputName = useRef(null);
+  useEffect(() => {
+    if (!showAddForm) return;
+    inputName.current.focus();
+  }, [showAddForm]);
+
   return (
     <>
       {!isEmpty && (
@@ -74,6 +84,7 @@ export default function FormAddGame({ onAddGame, games }) {
                     placeholder="game's name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
+                    ref={inputName}
                   />
                 </FloatingLabel>
               </Col>

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useState } from "react";
 import Container from "react-bootstrap/Container";
 import FormAddGame from "./FormAddGame/FormAddGame";
@@ -6,11 +6,15 @@ import CardList from "./CardList/CardList";
 import Actions from "./Actions/Actions";
 import NoGames from "./InitialPage/InitialPage";
 import Stats from "./Stats/Stats";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useFilter } from "../../hooks/useFilter";
 
 export default function Main() {
-  const [games, setGames] = useState([]);
-  const isEmpty = games.length === 0;
   const [filter, setFilter] = useState("default");
+  const [games, setGames] = useLocalStorage("games");
+  useFilter(filter, setGames);
+
+  const isEmpty = games.length === 0;
 
   function handleAddGame(game) {
     setGames((games) => [...games, game]);
@@ -42,55 +46,6 @@ export default function Main() {
     if (confirmed) setGames([]);
   }
 
-  function handleOrderGames() {
-    if (filter === "input") {
-      return setGames(
-        [...games].slice().sort((a, b) => a.aditionDate - b.aditionDate)
-      );
-    }
-
-    if (filter === "name") {
-      return setGames(
-        games.slice().sort((a, b) => a.name.localeCompare(b.name))
-      );
-    }
-  }
-
-  useEffect(
-    function () {
-      function orderGames() {
-        if (filter === "default") return;
-
-        if (filter === "input") {
-          return setGames((games) =>
-            [...games].slice().sort((a, b) => a.aditionDate - b.aditionDate)
-          );
-        }
-
-        if (filter === "name") {
-          return setGames((games) =>
-            games.slice().sort((a, b) => a.name.localeCompare(b.name))
-          );
-        }
-
-        if (filter === "completed") {
-          return setGames((games) =>
-            games.slice().sort((a, b) => b.completed - a.completed)
-          );
-        }
-
-        if (filter === "uncompleted") {
-          return setGames((games) =>
-            games.slice().sort((a, b) => a.completed - b.completed)
-          );
-        }
-      }
-      orderGames();
-    },
-
-    [filter]
-  );
-
   function handleEditCard(editedCard, newTextColor, newBackGroundColor) {
     setGames(
       games.map((game) =>
@@ -104,6 +59,7 @@ export default function Main() {
       )
     );
   }
+
   return (
     <Container>
       <FormAddGame onAddGame={handleAddGame} games={games} />
@@ -117,7 +73,6 @@ export default function Main() {
           />
 
           <Actions
-            onOrder={handleOrderGames}
             onClear={handleClearGames}
             onSetFilter={setFilter}
             filter={filter}

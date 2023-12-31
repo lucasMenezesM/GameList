@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/esm/Row";
 import Col from "react-bootstrap/esm/Col";
@@ -6,12 +5,8 @@ import Button from "../../Button/Button";
 import React from "react";
 import "./Style.css";
 
-export default function Actions({ onOrder, onClear, filter, onSetFilter }) {
-  // const [filter, setFilter] = useState("default");
-
+export default function Actions({ onClear, filter, onSetFilter }) {
   function handleSelectFilter(e) {
-    // setFilter(e.target.value);
-    // onOrder(e.target.value);
     onSetFilter(e.target.value);
   }
 

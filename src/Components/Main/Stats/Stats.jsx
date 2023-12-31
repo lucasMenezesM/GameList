@@ -12,7 +12,7 @@ export default function Stats({ games, isEmpty }) {
                 ? `You did not complete any of them until now!`
                 : percentage === 100
                 ? "you completed all your games! Congratulations!"
-                : `You completed ${percentage}% of them!`
+                : `You completed ${percentage.toFixed(2)}% of them!`
             }`}
       </p>
     </div>

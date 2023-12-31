@@ -4,6 +4,7 @@ import Button from "../../../Button/Button";
 import Form from "react-bootstrap/Form";
 import CardOptions from "./CardOptions/CardOptions";
 import GameDetails from "./GameDetails/GameDetails";
+import { useKey } from "../../../../hooks/useKey";
 
 function GameCard({
   game,
@@ -21,6 +22,13 @@ function GameCard({
     backgroundColor: game.backgroundColor,
     color: game.textColor,
   };
+
+  useKey("Escape", () => onSelection(null));
+  useKey("Delete", () => {
+    if (isSelected) {
+      onRemove(game);
+    }
+  });
 
   const isSelected = game.id === selectedGame?.id;
   return (

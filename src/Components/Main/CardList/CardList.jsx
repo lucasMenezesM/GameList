@@ -6,7 +6,7 @@ export default function CardList({ games, onRemove, onComplete, onEdit }) {
 
   function handleSelection(gameSelected) {
     setSelectedGame((game) =>
-      game?.id === gameSelected.id ? null : gameSelected
+      game?.id === gameSelected?.id ? null : gameSelected
     );
   }
 
